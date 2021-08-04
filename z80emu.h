@@ -2,7 +2,6 @@
  * Main header of z80emu. 
  * z80user.h to customize the emulator to your need. 
  *
- *
  * Original Author: Lin Ke-Fong
  *
  * License: Public Domain.
@@ -47,11 +46,11 @@ extern "C" {
 
 #define Z80_CATCH_HALT
 /*      
-#define Z80_CATCH_HALT
-#define Z80_CATCH_DI
-#define Z80_CATCH_EI
-#define Z80_CATCH_RETI
-#define Z80_CATCH_RETN
+_#define Z80_CATCH_HALT
+_#define Z80_CATCH_DI
+_#define Z80_CATCH_EI
+_#define Z80_CATCH_RETI
+_#define Z80_CATCH_RETN
 */
 
 /* Undefined 0xed prefixed opcodes may be catched, otherwise they are treated
