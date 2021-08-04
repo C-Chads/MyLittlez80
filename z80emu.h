@@ -217,7 +217,7 @@ typedef struct Z80_STATE {
         /* Register decoding tables. */
         void            *register_table[16], 
                         *dd_register_table[16], 
-                        *fd_register_table[16];        
+                        *fd_register_table[16];
 } Z80_STATE;
 
 /* Initialize processor's state to power-on default. */
