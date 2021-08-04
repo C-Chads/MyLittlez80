@@ -36,7 +36,7 @@ static void emulate_test(char *filename)
 {
         FILE   	*file;
         long   	l;
-	MY_LITTLE_Z80	context;
+		MY_LITTLE_Z80	context = {0};
         double 	total;
 
         printf("Testing \"%s\"...\n", filename);
@@ -86,7 +86,7 @@ static void emulate(char *filename)
 {
         FILE   	*file;
         long   	l;
-	MY_LITTLE_Z80	context;
+		MY_LITTLE_Z80	context = {0};
         double 	total;
         if ((file = fopen(filename, "rb")) == NULL) {
 
