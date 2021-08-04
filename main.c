@@ -48,6 +48,7 @@ static void emulate_test(char *filename)
         }
         fseek(file, 0, SEEK_END);
         l = ftell(file);
+        l &= 0xffFF;
 
         fseek(file, 0, SEEK_SET);
         fread(context.memory + 0x100, 1, l, file);
@@ -95,6 +96,7 @@ static void emulate(char *filename)
         }
         fseek(file, 0, SEEK_END);
         l = ftell(file);
+        l &= 0xffFF;
         fseek(file, 0, SEEK_SET);
         fread(context.memory + 0x100, 1, l, file);
         fclose(file);
