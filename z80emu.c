@@ -1,9 +1,9 @@
 /* z80emu.c
  * Z80 processor emulator. 
  *
- * Copyright (c) 2012-2017 Lin Ke-Fong
+ * Original Author: Lin Ke-Fong
  *
- * This code is free, do whatever you want with it.
+ * License: Public Domain.
  */
 
 #include "z80emu.h"
@@ -11,7 +11,6 @@
 #include "instructions.h"
 #include "macros.h"
 #include "tables.h"
-
 /* Indirect (HL) or prefixed indexed (IX + d) and (IY + d) memory operands are
  * encoded using the 3 bits "110" (0x06).
  */
@@ -259,24 +258,16 @@ static int emulate (Z80_STATE * state,
         r = state->r & 0x7f;
         goto start_emulation;
 
-        for ( ; ; ) {   
-
+        for (;;) {
                 void    **registers; 
                 int     instruction;
-
                 Z80_FETCH_BYTE(pc, opcode);
                 pc++;
-
 start_emulation:                
-
                 registers = state->register_table;
-
 emulate_next_opcode:
-
                 instruction = INSTRUCTION_TABLE[opcode];
-
 emulate_next_instruction:
-
                 elapsed_cycles += 4;
                 r++;
                 switch (instruction) {

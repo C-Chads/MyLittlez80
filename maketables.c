@@ -1,15 +1,14 @@
 /* maketables.c
  * Instructions and flags tables generator.
  *
- * Copyright (c) 2012, 2016 Lin Ke-Fong
- * 
- * This code is free, do whatever you want with it.
+ * Original Author: Lin Ke-Fong
+ *
+ * License: Public Domain.
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "z80emu.h"
-
 /* Encoding for indirect or indexed 8-bit memory operands. */
 
 #define INDIRECT_HL     0x06

@@ -1,8 +1,15 @@
 z80emu
-Version 1.1.3
 
-Copyright (c) 2012-2017 Lin Ke-Fong
- 
+Embeddable cross-platform Z80 emulation with extra features.
+
+Original Author: Lin Ke-Fong
+New Maintainer: Gek (DMHSW) 
+
+# ALl files in this repository are available to you under the CC0 license, with the following exceptions:
+
+* everything in testfiles/ which is under the GPLv2
+
+# Original Readme
 z80emu is a free portable Z80 processor emulator. Its performance is comparable
 to other Z80 emulators. It emulates all undocumented features as described in 
 "The Undocumented Z80 Documented Version 0.91" and passes both the zexdoc and 

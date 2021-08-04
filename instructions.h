@@ -1,9 +1,9 @@
 /* instructions.h
  * Declaration of the "generic" instructions emulated.
  *
- * Copyright (c) 2012 Lin Ke-Fong
+ * Original Author: Lin Ke-Fong
  *
- * This code is free, do whatever you want with it. 
+ * License: Public Domain.
  */
 
 /* Some "instructions" handle two opcodes hence they need their encodings to

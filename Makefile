@@ -1,4 +1,4 @@
-CC = gcc
+#CC = gcc
 CFLAGS = -Wall -ansi -pedantic -O2 -march=native -fomit-frame-pointer
 
 all: zextest
@@ -15,9 +15,7 @@ zextest.o: zextest.c zextest.h z80emu.h z80config.h
 	$(CC) -Wall -c $<
 
 OBJECT_FILES = zextest.o z80emu.o
-
 zextest: $(OBJECT_FILES)
 	$(CC) $(OBJECT_FILES) -o $@
-
 clean:
 	rm -f *.o zextest maketables

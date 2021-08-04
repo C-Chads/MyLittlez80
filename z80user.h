@@ -2,9 +2,9 @@
  * Add your code here to interface the emulated system with z80emu. See towards
  * the end of the file for an example for running zextest.
  *
- * Copyright (c) 2016, 2017 Lin Ke-Fong
+ * Original Author: Lin Ke-Fong
  *
- * This code is free, do whatever you want with it.
+ * License: Public Domain.
  */
 
 #ifndef __Z80USER_INCLUDED__
@@ -84,6 +84,13 @@ extern "C" {
  *                      instructions.h for a list.
  */
 
+/*
+	write  your implementations here.
+
+*/
+
+
+
 /* Here are macros for emulating zexdoc and zexall. Read/write memory macros
  * are written for a linear 64k RAM. Input/output port macros are used as 
  * "traps" to simulate system calls. 
@@ -93,7 +100,7 @@ extern "C" {
 
 #define Z80_READ_BYTE(address, x)                                       \
 {                                                                       \
-        (x) = ((ZEXTEST *) context)->memory[(address) & 0xffff];	\
+        (x) = ((ZEXTEST*)context)->memory[(address) & 0xffff];	\
 }
 
 #define Z80_FETCH_BYTE(address, x)		Z80_READ_BYTE((address), (x))
@@ -102,7 +109,7 @@ extern "C" {
 {                                                                       \
 	unsigned char	*memory;					\
 									\
-	memory = ((ZEXTEST *) context)->memory;				\
+	memory = ((ZEXTEST*) context)->memory;				\
         (x) = memory[(address) & 0xffff]                                \
                 | (memory[((address) + 1) & 0xffff] << 8);              \
 }
