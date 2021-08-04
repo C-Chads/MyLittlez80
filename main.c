@@ -56,15 +56,13 @@ static void emulate_test(char *filename)
 		context.memory[5] = 0xdb;       /* IN A, N */
 		context.memory[6] = 0x00;
 		context.memory[7] = 0xc9;       /* RET */
-		context.is_done = 0;
         /* Emulate. */
 		Z80Reset(&context.state);
 		context.state.pc = 0x100;
 		total = 0.0;
-		context.is_done = 0;
 	do{
 		total += Z80Emulate(&context.state, CYCLES_PER_STEP, &context);
-	}while(context.state.status != Z80_STATUS_HALT && !context.is_done);
+	}while(context.state.status != Z80_STATUS_HALT);
 }
 
 
@@ -86,15 +84,13 @@ static void emulate(char *filename)
         fseek(file, 0, SEEK_SET);
         fread(context.memory + 0x100, 1, l, file);
         fclose(file);
-		context.is_done = 0;
         /* Emulate. */
 		Z80Reset(&context.state);
 		context.state.pc = 0x100;
 		total = 0.0;
-		context.is_done = 0;
 	do{
 		total += Z80Emulate(&context.state, CYCLES_PER_STEP, &context);
-	}while(context.state.status != Z80_STATUS_HALT && !context.is_done);
+	}while(context.state.status != Z80_STATUS_HALT);
 }
 
 /*

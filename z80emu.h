@@ -247,7 +247,6 @@ extern int      Z80Emulate (Z80_STATE *state,
 typedef struct MY_LITTLE_Z80 {
 	Z80_STATE	state;
 	unsigned char	memory[1 << 16];
-	int 		is_done;
 } MY_LITTLE_Z80;
 /*
 	These are the functions you must implement.
