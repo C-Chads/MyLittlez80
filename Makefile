@@ -10,15 +10,16 @@ tables.h: maketables.c
 	$(CC) -Os -Wall -ansi -pedantic $< -o maketables
 	./maketables > $@
 
-zextest: tables.h
-	$(CC) $(CFLAGS) -DDO_ZEXTEST z80emu.c zextest.c -o $@
-
 z80emu.a: tables.h
 	$(CC) $(CFLAGS) -c z80emu.c
 	$(AR) crs z80emu.a z80emu.o
 
 runner: z80emu.a
 	$(CC) $(CFLAGS) main.c z80emu.a -o $@
+
+zextest: runner
+	./runner -t testfiles/zexdoc.com
+	./runner -t testfiles/zexall.com
 
 install: z80emu.a
 	install --mode=444 z80emu.h $(INCLUDE_DIR)/
