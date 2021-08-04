@@ -256,6 +256,10 @@ extern void     		out_impl(MY_LITTLE_Z80*zextest, int port, unsigned char x);
 extern unsigned char 	in_impl(MY_LITTLE_Z80*zextest, int port);
 
 
+
+
+
+
 #ifdef __cplusplus
 }
 #endif

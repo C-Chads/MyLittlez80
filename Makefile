@@ -1,6 +1,6 @@
 CC = gcc
 AR = ar
-CFLAGS = -Wall -std=c89 -pedantic -Os -mtune=native -fomit-frame-pointer
+CFLAGS = -flto -Wall -std=c89 -pedantic -Os -mtune=native -fomit-frame-pointer
 INCLUDE_DIR = /usr/local/include
 LIB_DIR = /usr/local/lib
 
