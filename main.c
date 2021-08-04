@@ -12,8 +12,6 @@
 #include <time.h>
 #include "z80emu.h"
 
-
-
 #define Z80_CPU_SPEED           4000000   /* In Hz. */
 #define CYCLES_PER_STEP         (Z80_CPU_SPEED)
 #define MAXIMUM_STRING_LENGTH   100

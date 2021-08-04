@@ -249,8 +249,12 @@ typedef struct MY_LITTLE_Z80 {
 	unsigned char	memory[1 << 16];
 	int 		is_done;
 } MY_LITTLE_Z80;
-extern void     out_impl(MY_LITTLE_Z80*zextest, int port, unsigned char x);
-extern unsigned char in_impl(MY_LITTLE_Z80*zextest, int port);
+/*
+	These are the functions you must implement.
+*/
+
+extern void     		out_impl(MY_LITTLE_Z80*zextest, int port, unsigned char x);
+extern unsigned char 	in_impl(MY_LITTLE_Z80*zextest, int port);
 
 
 #ifdef __cplusplus
