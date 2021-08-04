@@ -85,7 +85,6 @@ extern "C" {
  */
 
 #ifndef DO_ZEXTEST
-#include "myLittleZ80.h"
 
 #define Z80_READ_BYTE(address, x)                                       \
 {                                                                       \
