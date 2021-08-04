@@ -1,5 +1,6 @@
-#CC = gcc
-CFLAGS = -Wall -ansi -pedantic -Os -mtune=native -fomit-frame-pointer
+CC = tcc
+AR = tcc -ar
+CFLAGS = -Wall -std=ansi -pedantic -Os -mtune=native -fomit-frame-pointer
 INCLUDE_DIR = /usr/local/include
 LIB_DIR = /usr/local/lib
 
@@ -14,7 +15,7 @@ zextest: tables.h
 
 z80emu.a: tables.h
 	$(CC) $(CFLAGS) -c z80emu.c
-	$(AR) -crs z80emu.a z80emu.o
+	$(AR) crs z80emu.a z80emu.o
 
 runner: z80emu.a
 	$(CC) $(CFLAGS) main.c z80emu.a -o $@
