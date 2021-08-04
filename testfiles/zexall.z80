@@ -171,7 +171,7 @@ tstr:	macro	insn,memop,iy,ix,hl,de,bc,flags,acc,sp
 	local	lab
 &lab:	db	insn
 	ds	&lab+4-$,0
-	dw	&memop,&iy,&ix,&hl,&de,&bc
+	dw	&memop, &iy, &ix, &hl, &de, &bc
 	db	&flags
 	db	&acc
 	dw	&sp
