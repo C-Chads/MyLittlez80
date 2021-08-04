@@ -16,13 +16,14 @@
 #define CYCLES_PER_STEP         (Z80_CPU_SPEED)
 #define MAXIMUM_STRING_LENGTH   100
 
+static int is_testing = 0;
 static void	emulate (char *filename);
 static void	emulate_test(char *filename);
 int main (int argc, char** argv)
 {int i;
 	for(i = 1; i < argc; i++){
 		if(argv[i-1][0] == '-' && argv[i-1][1] == 't')
-			{emulate_test(argv[i]);return EXIT_SUCCESS;}
+			{is_testing = 1;emulate_test(argv[i]);return EXIT_SUCCESS;}
 		else if(argv[i-1][0] == '-' && argv[i-1][1] == 'r')
 			{emulate(argv[i]);return EXIT_SUCCESS;}
 	}
@@ -99,6 +100,8 @@ static void emulate(char *filename)
 void out_impl(MY_LITTLE_Z80* mlz80, int port, unsigned char x)
 {
 	/*TODO*/
+	if(is_testing)
+		mlz80->state.status = Z80_STATUS_HALT;
 	(void)port;
 }
 
