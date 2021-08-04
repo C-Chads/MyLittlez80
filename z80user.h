@@ -133,7 +133,6 @@ extern "C" {
 #endif
 
 #ifdef DO_ZEXTEST
-
 /* Here are macros for emulating zexdoc and zexall. Read/write memory macros
  * are written for a linear 64k RAM. Input/output port macros are used as 
  * "traps" to simulate system calls. 
