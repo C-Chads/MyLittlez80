@@ -1,11 +1,3 @@
-/* macros.h
- * Helper macros definitions.
- *
- * Original Author: Lin Ke-Fong
- *
- * License: Public Domain.
- */
-
 /* Shortcuts for flags and registers. */
 
 #define SZC_FLAGS       (Z80_S_FLAG | Z80_Z_FLAG | Z80_C_FLAG)
