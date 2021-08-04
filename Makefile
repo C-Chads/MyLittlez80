@@ -1,6 +1,7 @@
 CC = gcc
 AR = ar
-CFLAGS = -flto -Wall -std=c89 -pedantic -Os -mtune=native -fomit-frame-pointer
+# -flto bloats binary size quite a bit but makes it run faster
+CFLAGS = -Wall -std=c89 -pedantic -Os -mtune=native -fomit-frame-pointer
 INCLUDE_DIR = /usr/local/include
 LIB_DIR = /usr/local/lib
 
