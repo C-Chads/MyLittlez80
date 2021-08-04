@@ -104,7 +104,6 @@ _#define Z80_CATCH_RETN
  */
 
 enum {
-
 	Z80_STATUS_HALT = 1,
 	Z80_STATUS_DI,
 	Z80_STATUS_EI,
@@ -112,7 +111,6 @@ enum {
 	Z80_STATUS_RETN,
 	Z80_STATUS_ED_UNDEFINED,
 	Z80_STATUS_PREFIX
-
 };
  
 /* The main registers are stored inside Z80_STATE as an union of arrays named 
