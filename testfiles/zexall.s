@@ -1,4 +1,4 @@
-	.title	'Z80 instruction set exerciser'
+;	.title	'Z80 instruction set exerciser'
 
 ; zexlax.z80 - Z80 instruction set exerciser
 ; Copyright (C) 1994  Frank D. Cringle
