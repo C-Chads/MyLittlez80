@@ -84,12 +84,56 @@ extern "C" {
  *                      instructions.h for a list.
  */
 
-/*
-	write  your implementations here.
+#ifndef DO_ZEXTEST
+#include "myLittleZ80.h"
 
-*/
+#define Z80_READ_BYTE(address, x)                                       \
+{                                                                       \
+        (x) = ((MY_LITTLE_Z80*)context)->memory[(address) & 0xffff];	\
+}
 
+#define Z80_FETCH_BYTE(address, x)		Z80_READ_BYTE((address), (x))
 
+#define Z80_READ_WORD(address, x)                                       \
+{                                                                       \
+	unsigned char	*memory;					\
+	memory = ((MY_LITTLE_Z80*) context)->memory;				\
+        (x) = memory[(address) & 0xffff]                                \
+                | (memory[((address) + 1) & 0xffff] << 8);              \
+}
+
+#define Z80_FETCH_WORD(address, x)		Z80_READ_WORD((address), (x))
+
+#define Z80_WRITE_BYTE(address, x)                                      \
+{                                                                       \
+        ((MY_LITTLE_Z80 *) context)->memory[(address) & 0xffff] = (x);	\
+}
+
+#define Z80_WRITE_WORD(address, x)                                      \
+{                                                                       \
+	unsigned char	*memory;					\
+									\
+	memory = ((MY_LITTLE_Z80 *) context)->memory;				\
+        memory[(address) & 0xffff] = (x); 				\
+        memory[((address) + 1) & 0xffff] = (x) >> 8; 			\
+}
+
+#define Z80_READ_WORD_INTERRUPT(address, x)	Z80_READ_WORD((address), (x))
+
+#define Z80_WRITE_WORD_INTERRUPT(address, x)	Z80_WRITE_WORD((address), (x))
+
+#define Z80_INPUT_BYTE(port, x)                                         \
+{                                                                       \
+       x = in_impl((MY_LITTLE_Z80*)context, port);						\
+}
+#define Z80_OUTPUT_BYTE(port, x)                                        \
+{                                                                       \
+		out_impl((MY_LITTLE_Z80*)context, port, x);						\
+}
+
+#endif
+
+#ifdef DO_ZEXTEST
 
 /* Here are macros for emulating zexdoc and zexall. Read/write memory macros
  * are written for a linear 64k RAM. Input/output port macros are used as 
@@ -147,6 +191,8 @@ extern "C" {
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif

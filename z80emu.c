@@ -1159,33 +1159,20 @@ emulate_next_instruction:
                         }
 
                         case SCF: {
-
                                 F = (F & SZPV_FLAGS) 
-
 #ifndef Z80_DOCUMENTED_FLAGS_ONLY
-
                                         | (A & YX_FLAGS)
 
 #endif
-
                                         | Z80_C_FLAG;
-
                                 break;
 
                         }
-
-                        case NOP: {
-
-                                break;
-
-                        }
-
+                        case NOP: {break;}
                         case HALT: {
 
 #ifdef Z80_CATCH_HALT
-
-                                state->status = Z80_STATUS_FLAG_HALT;
-
+                                state->status = Z80_STATUS_HALT;
 #else
 
 				/* If an HALT instruction is executed, the Z80
@@ -1212,7 +1199,6 @@ emulate_next_instruction:
 
                                 state->status = Z80_STATUS_FLAG_DI;
                                 goto stop_emulation;
-
 #else
 
                                 /* No interrupt can be accepted right after
@@ -2246,24 +2232,18 @@ emulate_next_instruction:
                          */
 
                         case INI_IND: {
-
                                 int     x, f;
-
                                 Z80_INPUT_BYTE(C, x);
                                 WRITE_BYTE(HL, x);
 
                                 f = SZYX_FLAGS_TABLE[--B & 0xff]
                                         | (x >> (7 - Z80_N_FLAG_SHIFT));
                                 if (opcode == OPCODE_INI) {
-
-                                        HL++;
-                                        x += (C + 1) & 0xff;
-
+	                                HL++;
+	                                x += (C + 1) & 0xff;
                                 } else {
-
-                                        HL--;
-                                        x += (C - 1) & 0xff;
-
+                                    HL--;
+                                    x += (C - 1) & 0xff;
                                 }       
                                 f |= x & 0x0100 ? HC_FLAGS : 0;
                                 f |= SZYXP_FLAGS_TABLE[(x & 0x07) ^ B]
@@ -2281,25 +2261,17 @@ emulate_next_instruction:
                                 int     d, b, hl, x, f;
 
 #ifdef Z80_HANDLE_SELF_MODIFYING_CODE
-
                                 int     p, q;
-
                                 p = (pc - 2) & 0xffff;
                                 q = (pc - 1) & 0xffff;
-
 #endif                          
-
                                 d = opcode == OPCODE_INIR ? +1 : -1;
-
                                 b = B;
                                 hl = HL;
-
                                 r -= 2;
                                 elapsed_cycles -= 8;
                                 for ( ; ; ) {
-
                                         r += 2;
-                
                                         Z80_INPUT_BYTE(C, x);
                                         Z80_WRITE_BYTE(hl, x);
 

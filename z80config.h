@@ -27,6 +27,7 @@
  * accepted at the instruction right after a DI or EI on an actual processor. 
  */
 
+#define Z80_CATCH_HALT
 /*      
 #define Z80_CATCH_HALT
 #define Z80_CATCH_DI
