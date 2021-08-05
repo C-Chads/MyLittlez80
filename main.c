@@ -106,7 +106,7 @@ static void emulate(char *filename)
 		total = 0.0;
 	do{
 		total += Z80Emulate(&context.state, CYCLES_PER_STEP, &context);
-	}while(context.state.status != Z80_STATUS_HALT);
+	}while(context.state.status == 0);
 }
 
 /*

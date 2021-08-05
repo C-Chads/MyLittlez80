@@ -1,6 +1,5 @@
 /* z80emu.h
  * Main header of z80emu. 
- * z80user.h to customize the emulator to your need. 
  *
  * Original Author: Lin Ke-Fong
  *
@@ -33,7 +32,7 @@ extern "C" {
 
 /* Emulation can be speed up a little bit by emulating only the documented
  * flags.
- */     
+ */
 
 /* #define Z80_DOCUMENTED_FLAGS_ONLY */
 
@@ -45,6 +44,8 @@ extern "C" {
  */
 
 #define Z80_CATCH_HALT
+#define Z80_CATCH_DI
+#define Z80_CATCH_EI
 /*      
 _#define Z80_CATCH_HALT
 _#define Z80_CATCH_DI
@@ -71,6 +72,7 @@ _#define Z80_CATCH_RETN
  * most program won't need this feature.
  */
 
+#define Z80_PREFIX_FAILSAFE
 /* #define Z80_PREFIX_FAILSAFE */
      
 /* By defining this macro, the emulator will always fetch the displacement or 
@@ -251,10 +253,6 @@ typedef struct MY_LITTLE_Z80 {
 
 extern void     		out_impl(MY_LITTLE_Z80*zextest, int port, unsigned char x);
 extern unsigned char 	in_impl(MY_LITTLE_Z80*zextest, int port);
-
-
-
-
 
 
 #ifdef __cplusplus

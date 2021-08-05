@@ -31,4 +31,4 @@ uninstall:
 	rm -f $(LIB_DIR)/z80emu.a
 
 clean:
-	rm -f *.o *.a zextest maketables runner tables.h
+	rm -f *.o *.a zextest maketables runner

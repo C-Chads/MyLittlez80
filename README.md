@@ -4,8 +4,10 @@ Embeddable cross-platform Z80 emulation with extra features.
 
 Original Author: Lin Ke-Fong
 New Maintainer: Gek (DMHSW) 
+# Usage
 
-# ALl files in this repository are available to you under the CC0 license, with the following exceptions:
+
+# All files in this repository are available to you under the CC0 license, with the following exceptions:
 
 * everything in testfiles/ which is under the GPLv2
 
