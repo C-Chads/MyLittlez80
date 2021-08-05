@@ -6,10 +6,21 @@ Original Author: Lin Ke-Fong
 New Maintainer: Gek (DMHSW) 
 # Usage
 
+Configure the emulator in z80emu.h to the desired settings.
+
+Then, run maketables to generate tables.h.
+
+Then, compile z80emu.c along with your program, tables.h, and z80emu.h.
+
+You must implement some functions for the emulator. in_impl and out_impl.
+
 
 # All files in this repository are available to you under the CC0 license, with the following exceptions:
 
 * everything in testfiles/ which is under the GPLv2
+
+___________________________________________________________________
+
 
 # Original Readme
 z80emu is a free portable Z80 processor emulator. Its performance is comparable
