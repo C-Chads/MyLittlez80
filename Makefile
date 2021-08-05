@@ -19,8 +19,8 @@ runner: z80emu.a
 	$(CC) $(CFLAGS) main.c z80emu.a -o $@
 
 zextest: runner
-	./runner -t testfiles/zexdoc.com
 	./runner -t testfiles/zexall.com
+	./runner -t testfiles/zexdoc.com
 
 install: z80emu.a
 	install --mode=444 z80emu.h $(INCLUDE_DIR)/

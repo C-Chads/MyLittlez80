@@ -71,7 +71,7 @@ static void emulate_test(char *filename)
 		total = 0.0;
 	do{
 		total += Z80Emulate(&context.state, CYCLES_PER_STEP, &context);
-	}while (context.state.status != Z80_STATUS_HALT);
+	}while(context.state.status != Z80_STATUS_HALT);
         printf("\n%.0f cycle(s) emulated.\n" 
                 "For a Z80 running at %.2fMHz, "
                 "that would be %d second(s) or %.2f hour(s).\n",
